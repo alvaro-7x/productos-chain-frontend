@@ -1,0 +1,5 @@
+<div class="error-alert" *ngIf="visible">
+	<mat-icon class="error-icono">warning</mat-icon>
+	<div [innerHTML]="error"></div>
+	<mat-icon class="cerrar-icono" (click)="cerrarMsj()">clear</mat-icon>
+</div>

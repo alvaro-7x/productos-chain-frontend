@@ -1,0 +1,144 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: calc(100% - 64px); text-rendering: optimizespeed; }
+html{
+	scrollbar-color: var(--color-toolbar) transparent;
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+*{
+	outline-style: none;
+}
+
+.espacio
+{
+	flex: 1 1 auto;
+}
+
+.font-shadow
+{
+	text-shadow: 1px 1px 7px white;
+}
+
+.container2
+{
+	margin: 1em;
+}
+
+
+.align-icon
+{
+	vertical-align: middle !important;
+}
+
+.shadow-card
+{
+	box-shadow: 0px 12px 18px -6px rgba(0,0,0,0.3) !important;
+}
+
+.prod-seleccionado
+{
+	border: 1px solid black;
+	opacity: 1;
+}
+
+.prod-no-seleccionado
+{
+	border: 1px solid grey;
+	opacity: 0.4;
+}
+
+.custom-card-grid:hover,
+.custom-card-list:hover
+{
+	cursor: pointer;
+	border: 1px solid var(--color-toolbar);
+}
+
+
+
+/* estilos finales*/
+
+:root {
+  --color-background: #F8F1F1; 
+  --color-toolbar: #5EAAA8;
+  --color-destacado: #EB5E0B;
+  --color-destacado-2: #5EAAA8;
+  --color-btn-ok: #469084;
+  --color-ok-toogle-bar: #4690848a;
+  --color-btn-cancel: #FFA067;
+  --color-btn-icon: #5EAAA8;
+}
+
+
+
+body
+{
+	background-color: var(--color-background) !important;
+}
+
+mat-toolbar
+{
+	background-color: var(--color-toolbar) !important;
+}
+
+.color-destacado
+{
+	background-color: var(--color-destacado) !important;
+}
+
+.color-btn-ok
+{
+	background-color: var(--color-btn-ok) !important;
+}
+
+.color-btn-accion
+{
+	background-color: var(--color-background) !important;
+	color: black;
+}
+
+.color-btn-icon
+{
+	color: var(--color-btn-icon) !important;
+}
+
+.color-btn-cancel
+{
+	background-color: var(--color-btn-cancel) !important;
+}
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb
+{
+	background-color: var(--color-btn-ok) !important;
+}
+.mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar
+{
+	background-color: var(--color-ok-toogle-bar) !important;
+}
+.mat-progress-bar-fill::after
+{
+	background-color: var(--color-toolbar) !important;
+}
+.icono
+{
+	box-shadow: 0px 0px 5px grey;
+}
+.mat-progress-spinner circle, .mat-spinner circle
+{
+	stroke: var(--color-background);
+}
+
+.mat-dialog-content
+{
+	scrollbar-color: var(--color-toolbar) white;
+}
+
+.mat-tooltip,
+.mat-tooltip-show
+{
+	background-color: rgba(0,0,0,0.9);
+	color: white;
+	padding:8px;
+	font-size: 16px
+}
+/* estilos finales*/

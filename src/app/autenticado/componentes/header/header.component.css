@@ -1,0 +1,71 @@
+
+.toolbar-static
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.cuenta
+{
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 5px;
+  display: table;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.img-cuenta
+{
+	display: table-cell;
+	vertical-align: middle;
+	border-radius: 99999px;
+}
+
+.info-cuenta
+{
+	display: table-cell;
+	vertical-align: middle;
+  padding-left: 8px;
+  padding-right: 8px;
+	font-size: 16px;
+}
+
+.socket-desconectado
+{
+  color: red;
+}
+
+.submenu
+{
+  width: 250px;
+  line-height: 0;
+  height: 30px;
+}
+
+.submenu-error
+{
+  color: rgba(255,0,0,0.5);
+}
+
+.submenu-titulo
+{
+  display: inline-block;
+}
+
+.submenu-dato
+{
+  float: right;
+}
+
+.submenu-cerrar
+{
+  text-align: right;
+  line-height: 5px;
+  height: 30px;
+  margin-top: 8px;
+}

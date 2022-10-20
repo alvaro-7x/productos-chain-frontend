@@ -1,0 +1,75 @@
+<mat-toolbar color="primary" class="toolbar-static">
+
+  <ng-container *ngIf="(estadoProductos$|async).productosSeleccionados.length<=0; else mostrarBtnBorrarSeleccionados">
+	  <a mat-raised-button 
+       matTooltip="Nuevo producto" 
+       class="color-btn-accion" 
+       (click)='crearProducto()'
+       [routerLink]="['producto']">
+	  	<mat-icon>add_shopping_cart</mat-icon>
+	  </a>
+  </ng-container>
+  
+  <ng-template #mostrarBtnBorrarSeleccionados>
+	  <button mat-raised-button 
+	  				matTooltip="Borrar productos seleccionados (Experimental)"
+            [matBadge]="(estadoProductos$|async).productosSeleccionados.length"
+            matBadgeColor="warn"
+            class="color-btn-accion"
+            *ngIf="(estadoProductos$|async).productosSeleccionados as ids"
+            (click)="eliminarProductosSeleccionados(ids)"
+	  				>
+	  	<mat-icon>delete_sweep</mat-icon>
+	  </button>
+  </ng-template>
+
+  <span class="espacio"></span>
+
+
+  <div class="cuenta color-btn-accion" [matMenuTriggerFor]="beforeMenu">
+    <div class="img-cuenta">
+      <app-usuario-icono [cuenta]="(estadoAuth$|async).cuenta" [size]="24"></app-usuario-icono>
+    </div>
+    <span class="info-cuenta" [ngClass]="{'socket-desconectado':!estadoSocket }"> {{ (estadoAuth$|async).cuenta | idformat }} </span>
+    <mat-icon class="align-icon" >keyboard_arrow_down</mat-icon>
+  </div>
+
+    <mat-menu #beforeMenu="matMenu" xPosition="before">
+      <button mat-menu-item class="submenu" disabled="true">
+        <span class="submenu-titulo">
+          Total productos:
+        </span> 
+        <span class="submenu-dato">
+          {{ (estadoProductos$|async).productos.length }} 
+        </span>
+      </button>
+
+      <button mat-menu-item class="submenu" disabled="true">
+        <span class="submenu-titulo">
+          Mis productos:
+        </span> 
+        <span class="submenu-dato">
+          {{ (misProductos$|async) }} 
+        </span>
+      </button>
+
+      <button mat-menu-item class="submenu" disabled="true">
+        <span class="submenu-titulo">
+          Mi balance:
+        </span> 
+        <span class="submenu-dato">
+          {{ (estadoDialogo$|async).balance }} ETH
+        </span>
+      </button>
+
+      <button mat-menu-item class="submenu" disabled="true" *ngIf="!estadoSocket">
+        <span class="submenu-titulo submenu-error">
+          Error de conexión ...
+        </span>
+      </button>
+
+      <mat-divider [inset]="false"></mat-divider>
+      <button mat-menu-item (click)="desconectarWallet()" class="submenu-cerrar">Cerrar sesión</button>
+    </mat-menu>
+
+</mat-toolbar>

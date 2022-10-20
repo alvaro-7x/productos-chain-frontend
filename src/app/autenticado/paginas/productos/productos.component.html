@@ -1,0 +1,79 @@
+<app-cargando [visible]="(estadoProductos$|async).loading && !(estadoDialogo$|async).dialogoAbierto" ></app-cargando>
+
+<app-msj-error [visible]="(estadoProductos$|async).error && !(estadoDialogo$|async).dialogoAbierto"
+							 [error]=(estadoProductos$|async).error
+							 (onCerrarMensajeError) = "retirarError()">
+</app-msj-error>
+
+<div class="opciones-productos">
+	<mat-button-toggle-group multiple (click)="buscarToogle()" class="btn-buscar">
+	  <mat-button-toggle matTooltip="Mostrar/Ocultar busqueda">
+	  	<mat-icon>search</mat-icon>
+	  </mat-button-toggle>
+	</mat-button-toggle-group>
+	<mat-button-toggle-group value="grid" class="btn-tipo-vista">
+	  <mat-button-toggle value="grid" (click)="cambiarVista(0)" matTooltip="Ver en grilla">
+	  	<mat-icon>grid_on</mat-icon>
+	  </mat-button-toggle>
+
+	  <mat-button-toggle value="list" (click)="cambiarVista(1)" matTooltip="Ver en lista">
+	  	<mat-icon>list</mat-icon>
+	  </mat-button-toggle>
+	</mat-button-toggle-group>
+
+	<div class="productos-no-cargados" *ngIf="!(estadoProductos$|async).loaded && !(estadoProductos$|async).loading">
+		<span class="btn-intentar-cargar-productos" (click)="cargarProductos()">¿Intentar cargar productos de nuevo?</span>
+	</div>
+
+	<app-producto-buscar *ngIf="mostrarBuscar"
+											 (onTerminoBusqueda)="resultadosBusqueda($event)"
+											 [resultadoCantidad]="(estadoProductos$|async).productosBusqueda.length" >
+	</app-producto-buscar>
+
+	<div class="productos-seleccionados" *ngIf="(estadoProductos$|async).productosSeleccionados.length > 0">
+		<span class="deseleccionar-productos color-btn-icon" 
+					(click)="deseleccionarAllCards()"
+					matTooltip="Deseleccionar todos los productos (Esc)" >
+			<mat-icon class="align-icon">cancel</mat-icon>
+		</span>
+		Productos seleccionados: {{ (estadoProductos$|async).productosSeleccionados.length }}
+	</div>
+
+</div>
+
+
+<ng-container *ngIf="( (productos$|async).length>0 ); else sinProductos" class="container-productos">
+	<ng-container *ngIf="tipoVista === 0; else vistaFilas">
+		<app-producto-grid [productos]="productos$|async" 
+											 [idProducto]="idProducto"
+											 [productosSeleccionados]="(estadoProductos$|async).productosSeleccionados.length > 0"
+											 (onSeleccionarCard)="seleccionarCard($event)"
+											 (onEliminarProducto)="eliminarProducto($event)"
+											 (onEditarProducto)="editarProducto($event)"
+											 >
+		</app-producto-grid>
+	</ng-container>
+
+	<ng-template #vistaFilas>
+		<app-producto-list [productos]="productos$|async" 
+											 [idProducto]="idProducto"
+											 [productosSeleccionados]="(estadoProductos$|async).productosSeleccionados.length > 0"
+											 (onSeleccionarCard)="seleccionarCard($event)"
+											 (onEliminarProducto)="eliminarProducto($event)"
+											 (onEditarProducto)="editarProducto($event)"
+											 >
+		</app-producto-list>
+	</ng-template>
+</ng-container>
+
+<ng-template #sinProductos>
+	<div class="sin-productos" *ngIf="!(estadoProductos$|async).loading && !(estadoProductos$|async).buscando">
+		<div class="mensaje">
+			Cree en nuevo producto haciendo clic en el boton &nbsp;
+			<button mat-raised-button class="color-btn-accion">
+				<mat-icon>add_shopping_cart</mat-icon>
+			</button>
+			&nbsp; ubicado en la parte superior izquerda.
+		</div>
+	</div>
+</ng-template>

@@ -1,0 +1,53 @@
+
+<div class="pantalla-100">
+
+	<div class="contenedor">
+		<div class="row middle-xs middle-sm middle-md middle-lg row-detalles">
+			<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 
+			col-detalles">
+				<h1 class="titulo">Productos Chain</h1>
+
+				<div class="imagen imagen-login">
+					<img src="assets/img/fondo.svg" alt="Productos Chain">
+				</div>
+
+				<div class="descripcion">
+					<p>
+						Una aplicación <abbr title="(Crear, Leer, Actualizar, Borrar)">C.R.U.D</abbr> de productos, utilizado la test network Goerli.
+						Para ingresar en la aplicación debe seguir los siguientes pasos:
+					</p>
+
+					<ul class="lista-pasos">
+						<li>Instalar <a href="https://addons.mozilla.org/en-US/firefox/addon/ether-metamask/" class="enlace-ayuda" target="_blank">Metamask</a>.</li>
+						<li>Obtener <a href="https://faucets.chain.link/" class="enlace-ayuda" target="_blank">ethers de prueba de Goerli</a>.</li>
+						<li>Hacer clic en el boton <span class="texto-resaltado">Conectar wallet</span>.</li>
+					</ul>
+
+					<p>
+						<span class="d-inline-block">Estado:&nbsp;</span>
+						<span class="d-inline-block estado-login" [ngClass]="{'error-login':!!(estadoAuth$|async).error}">{{ (estadoAuth$|async).error? (estadoAuth$|async).error: (estadoAuth$|async).estado }}</span>
+					</p>
+					
+					<p class="powered">
+						Powered by Angular
+					</p>
+				</div>
+
+				<div class="conectar">
+					<button class="btn-conectar" 
+									matRipple
+									(click)="conectarWallet()"
+									[disabled]="(estadoAuth$|async).loading || (estadoAuth$|async).logueado"
+									>
+					{{ (estadoAuth$|async).loading
+							? 'Conectando ...'
+							: (estadoAuth$|async).logueado? 'Conectado':'Conectar wallet'
+					}}
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+

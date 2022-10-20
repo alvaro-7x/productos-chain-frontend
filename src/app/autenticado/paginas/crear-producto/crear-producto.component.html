@@ -1,0 +1,132 @@
+
+<app-cargando [visible]="(estadoProductos$|async).loading && !(estadoDialogo$|async).dialogoAbierto" ></app-cargando>
+
+<app-msj-error [visible]="(estadoProductos$|async).error && !(estadoDialogo$|async).dialogoAbierto"
+							 [error]=(estadoProductos$|async).error
+							 (onCerrarMensajeError) = "retirarError()">
+</app-msj-error>
+
+
+<div class="container-fluid mi-container">
+	<div class="row">
+	    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 col-img">
+				<div class="container-img col-xs-12">
+					<div class="imagen">
+						<img [src]="producto.imagen | urlimagen" 
+								 alt="Imagen del producto" 
+								 #imagenProducto />
+					</div>
+					<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 advertencia">
+						* La información del producto (texto e imagen) podria ser borrada. Esta aplicación es solo de prueba.
+					</div>
+				</div>
+	    </div>
+	    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+
+				<div class="detalles">
+					<form [formGroup]="formulario" (ngSubmit)="enviarFormulario($event)">
+
+						<div class="row mb-2">
+							<div class="col-xs-12">
+								<div class="datos-producto">
+									<input type="text" 
+												 name="nombre" 
+												 formControlName="nombre"
+												 placeholder="Nombre del producto" 
+												 class="nombre-producto"
+												 maxlength="maxLenNombre" 
+												 [ngClass]="{'form-error': campoEsValido('nombre')}">
+
+								</div>
+							</div>
+						</div>
+
+						<div class="row detalles-autor middle-xs mt-2 mb-2">
+							<div class="col-xs-12 col-sm-8">
+								<div class="autor-detalle">
+									<mat-icon class="align-icon">person</mat-icon> 
+									Autor: <span class="color-grey">{{(estadoAuth$|async).cuenta | idformat}}</span>
+								</div>
+							</div>
+							<div class="col-xs-12 col-sm-4">
+								<div class="autor-detalle">
+									<mat-icon class="align-icon">date_range</mat-icon> 
+									Creado el: <span class="color-grey">{{ producto.creadoEn === 0?'En este momento':(producto.creadoEn*1000)|date}}</span>
+								</div>
+							</div>
+						</div>
+
+						<mat-divider></mat-divider>
+
+						<div class="row mt-2 mb-2">
+							<div class="col-xs-12 mb-1">
+								<div class="texto-descripcion">
+									Descripción:
+									<span class="limite-descripcion">
+										(<span [ngClass]="{'limite-error': formulario.value.descripcion.length>maxLenDescripcion }">{{formulario.value.descripcion.length}}</span>/{{maxLenDescripcion}})
+									</span>
+								</div>
+							</div>
+							<div class="col-xs-12">
+								<textarea class="descripcion-producto" 
+													[ngClass]="{'limite-error': formulario.value.descripcion.length>maxLenDescripcion, 'form-error': campoEsValido('descripcion') }"
+													rows="7" 
+													placeholder="Descripción del producto"
+													name="descripcion"
+													formControlName="descripcion"
+													(change)="verificarLimite()">
+								</textarea>
+							</div>
+						</div>
+
+						<div class="row mt-1 mb-1">
+				      <mat-slide-toggle name=destacado
+																formControlName="destacado"
+																color="primary">
+				        Destacado
+				      </mat-slide-toggle>
+						</div>
+
+						<div class="row imagen-producto mt-1 mb-1">
+							<div class="col-xs-12">
+								<div class="col-xs-12 col-sm-3 col-md-2" class="pl-0">
+									<input mat-raised-button type="file" name="imagen" (change)="cambiarImagen($event)" class="d-none" #inputImagen>
+									<button type="button" 
+													mat-button 
+													class="btn-file" 
+													(click)="inputImagen.click()"
+													> <mat-icon>add_photo_alternate</mat-icon> Cargar imagen (Max. {{ maxSizeFile }} Kb.)</button>
+									<div class="extensiones-permitidas">
+										Extensiones: <span>jpg, jpeg, png, gif</span>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="row acciones-producto mt-1">
+							<div class="col-xs-12 col-sm-3 col-md-2 mb-1">
+								<a class="btn-block color-btn-cancel mt-1" 
+									 [routerLink]="['/wallet/productos']" 
+									 mat-raised-button 
+									 (click)="cancelar()"
+									 color="warn">
+									<mat-icon>cancel</mat-icon> Cancelar
+								</a>
+							</div>
+							<div class="col-xs-12 col-sm-3 col-md-3">
+								<button class="btn-block mt-1 color-btn-ok" 
+												type="submit" 
+												mat-raised-button
+												[disabled]= "(estadoDialogo$|async).loading || (estadoDialogo$|async).dialogoAbierto"
+												color="primary">
+									<mat-icon>save</mat-icon> {{ producto.id === ''? 'Guardar': 'Actualizar' }}
+								</button>
+							</div>
+						</div>
+
+					</form>
+				</div>
+	    </div>
+	</div>
+</div>
+

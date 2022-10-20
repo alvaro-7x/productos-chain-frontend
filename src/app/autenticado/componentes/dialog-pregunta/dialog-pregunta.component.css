@@ -1,0 +1,113 @@
+
+.input-dialog,
+.text-dialog
+{
+	text-align: right;
+	background: transparent;
+	border: none;
+	padding: 8px 0;
+	width: 100%;
+	font-size: 16px;
+}
+
+.font-16
+{
+	font-size: 16px;
+}
+
+.input-dialog-border
+{
+	border-bottom: 1px solid gray;
+}
+
+.gas-sugerido
+{
+	display: block;
+	font-size: 12px;
+	text-align: right;
+	color: rgba(0,0,0,0.6);
+}
+
+.gas-help
+{
+	padding: 0; min-width: 24px;
+}
+
+
+.gas-sugerido >span
+{
+	font-weight: bolder;
+}
+
+.gas-fee
+{
+	font-size: 20px;
+	font-weight: bolder;
+	color: rgba(0,0,0,0.9);
+	overflow: hidden;
+}
+
+.col-tx
+{
+	max-height: 63px;
+	overflow-y: auto;
+	scrollbar-color: var(--color-toolbar) white;
+}
+
+.tx
+{
+	display: block;
+}
+
+.tx > a
+{
+	text-decoration: none;
+	font-size: 14px;
+	display: inline-block;
+	color: rgba(0,0,0,0.7);
+	font-weight: bold;
+	transition: all 0.2s ease;
+}
+
+.tx > a:hover
+{
+	text-decoration: underline;
+	font-size: 15px;
+}
+
+.mt,
+.row
+{
+	margin-top: 0.5em;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+{
+	-webkit-appearance: none;
+	margin: 0;
+}
+input[type="number"]
+{
+	-moz-appearance: textfield;
+}
+
+@media only screen and (max-width: 48em)
+{
+	.input-dialog,
+	.text-dialog,
+	.gas-sugerido
+	{
+		text-align: left;
+	}
+}
+
+.error-dialog
+{
+	text-align: left;
+	display: block;
+	background-color: rgba(255,0,0,0.8);
+	color:white;
+	margin-top: 0.5em;
+	padding: 2px 6px;
+}

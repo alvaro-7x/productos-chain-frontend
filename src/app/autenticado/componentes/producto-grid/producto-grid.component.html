@@ -1,0 +1,66 @@
+<div class="contenedor-grid">
+
+	<mat-card class="custom-card-grid shadow-card" 
+						*ngFor="let producto of productos"
+						[ngClass]="{'prod-seleccionado': (producto.seleccionado && productosSeleccionados), 'prod-no-seleccionado': (!producto.seleccionado && productosSeleccionados )}"
+						>
+		<div class="area-seleccionable-card"
+				 (click)="seleccionarCard(producto.id)">
+			<div class="destacado" *ngIf="producto.destacado">
+				
+				<span class="color-destacado">Destacado</span>
+			</div>
+
+		  <mat-card-header>
+		    <div mat-card-avatar class="usuario-image">
+		    	<app-usuario-icono [cuenta]="producto.creadoPor"
+		    										 [size]="40"></app-usuario-icono>
+		    </div>
+
+		    <mat-card-title class="titulo" [matTooltip]="producto.nombre" matTooltipPosition="below">{{ producto.nombre}}</mat-card-title>
+		    <mat-card-subtitle>Autor: {{ producto.creadoPor | idformat}}</mat-card-subtitle>
+		  </mat-card-header>
+		  <mat-divider inset></mat-divider>
+		  <img mat-card-image [src]="producto.imagen | urlimagen" [alt]="producto.nombre" class="imagen">
+		  <mat-card-content class="descripcion">
+		    <p>
+					{{ producto.descripcion }}
+		    </p>
+		  </mat-card-content>
+		</div>
+
+	  <mat-card-actions class="acciones">
+				<ng-container *ngIf="!productosSeleccionados && !producto.seleccionado; else noSeleccionado">
+					<button mat-flat-button 
+									color="warn"
+									class="color-btn-cancel" 
+									matTooltip="Borrar Producto"
+									matTooltipPosition="above"
+									[disabled]="producto.id === idProducto"
+									(click)="eliminarProducto(producto.id)">
+						<mat-icon>delete</mat-icon>
+					</button> &nbsp;
+					<button mat-flat-button 
+									color="primary"
+									class="color-btn-ok" 
+									matTooltip="Editar Producto"
+									matTooltipPosition="above" 
+									[disabled]="producto.id === idProducto"
+									(click)="editarProducto(producto.id)">
+						<mat-icon>edit</mat-icon>
+					</button>
+				</ng-container>
+
+				<ng-template #noSeleccionado>
+					<div class="espacio-no-seleccionado"></div>
+				</ng-template>
+	  </mat-card-actions>
+
+	  <mat-card-footer>
+	    <mat-progress-bar mode="indeterminate" *ngIf="producto.id && producto.id === idProducto" class="loading"></mat-progress-bar>
+	  </mat-card-footer>
+	</mat-card>
+
+</div>
+
+

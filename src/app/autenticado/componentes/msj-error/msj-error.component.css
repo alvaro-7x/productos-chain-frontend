@@ -1,0 +1,43 @@
+.error-alert
+{
+	text-align: left;
+	display: flex;
+	align-items: center;
+	background-color: rgba(255, 0, 0, 0.8);
+	color: white;
+	position: fixed;
+	top: 56px;
+	right: 0;
+	z-index: 1;
+	margin: 0 2em;
+
+	border-radius: 6px;
+	margin-top: 2.5em;
+	padding: 14px;
+
+	box-shadow: 0px 7px 14px rgba(0,0,0,0.2);
+	padding-right: 48px;
+	font-size: 15px;
+}
+
+.cerrar-icono
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 12px;
+	cursor: pointer;
+}
+
+.error-icono
+{
+	padding-right: 8px;
+}
+
+@media (max-width: 767px)
+{
+	.error-alert
+	{
+		left: 0;
+	}
+}

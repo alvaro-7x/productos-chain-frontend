@@ -1,0 +1,17 @@
+<div class="info-alert">
+	<mat-icon class="info-icono">notifications</mat-icon>
+	<div class="info-mensaje">
+
+		{{ cantidadTx | i18nPlural: textoTx }}
+
+		<ng-container *ngFor="let txHash of (data.tx | tx2Array)">
+			<a href="{{urlTransaccion}}/{{txHash}}" target="_blank">
+				{{ txHash|idformat }}
+			</a>
+		</ng-container>
+
+		{{ cantidadTx | i18nPlural: textoRealizada }} 
+		({{ data.tipoAccion }})
+	</div>
+	<mat-icon matRipple class="cerrar-icono" (click)="snackBar.dismiss()">clear</mat-icon>
+</div>

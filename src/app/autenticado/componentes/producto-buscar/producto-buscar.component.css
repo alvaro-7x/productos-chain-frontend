@@ -1,0 +1,85 @@
+
+.prod-buscar2
+{
+	border: 1px solid black;
+	height: 40px;
+	display: flex;
+	flex-flow: row;
+	justify-content: space-around;
+	margin-top: 1em;
+	overflow: hidden;
+	background: white;
+	position: relative;
+	border-radius: 4px;
+}
+
+.detalle-busqueda
+{
+	margin-bottom: 1em;
+	text-align: left;
+}
+
+.prod-buscar2:focus-within
+{
+  box-shadow: 0px 0px 3px gray inset;
+}
+
+.btn-icon-search-buscar2
+{
+	height: initial;
+	box-shadow: none;
+	border-radius: 0px;
+	width: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.input-buscar2
+{
+	height: initial;
+	box-shadow: none;
+	border-radius: 0px;
+	border: 1px solid blue;
+	width: calc(100% - 45px);
+	border: none;
+	margin: 5px 0;
+	background: transparent;
+	font-size: 20px;
+}
+
+.input-buscar2:invalid
+{
+	-webkit-animation: parpadeo 1.5s step-end infinite;
+	animation: parpadeo 1.5s step-end infinite;
+	caret-color: transparent;
+	opacity: 1;
+	text-decoration-color: black;
+	text-decoration-thickness: 3px;
+	text-underline-offset: 2px;
+}
+
+.btn-icon-cancel-buscar2
+{
+	height: initial;
+	box-shadow: none;
+	width: 40px;
+	position: absolute;
+	right: 0;
+}
+
+@keyframes parpadeo
+{
+  from,
+  to
+  {
+    text-decoration-line: none;
+  }
+  50%
+  {
+    text-decoration-line: underline;
+  }
+}
+
+
+

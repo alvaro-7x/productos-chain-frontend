@@ -1,0 +1,14 @@
+<div class="prod-buscar2">
+	<div class="btn-icon-search-buscar2">
+		<mat-icon>search</mat-icon>
+	</div>
+
+	<input type="search" required class="input-buscar2" [(ngModel)]="buscar" autofocus #inputBuscar (keydown.enter)="buscarResultados()" placeholder="   ">
+	
+	<button mat-icon-button class="btn-icon-cancel-buscar2" *ngIf="buscar" (click)="buscarLimpiar()">
+		<mat-icon>clear</mat-icon>
+	</button>
+</div>
+<div class="detalle-busqueda" *ngIf="buscando">
+	{{ resultadoCantidad | i18nPlural: detalleBusqueda }}
+</div>
