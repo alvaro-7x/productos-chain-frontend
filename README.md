@@ -29,13 +29,13 @@ En ambos casos tanto en desarrollo como en producción, deberá tener instalado 
 
 En desarrollo
 * Mostrar las redes de prueba:
- 1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
+  1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
  
- 1. En la ventana pop-up recientemente abierta haga clic en el boton del medio,  el que se encuentra al lado derecho del icono de metamask, esto mostrará la sección de Redes (Networks), en este sección haga clic en **Mostrar/ocultar redes de prueba** (**Show/hide test networks**).
+  1. En la ventana pop-up recientemente abierta haga clic en el boton del medio,  el que se encuentra al lado derecho del icono de metamask, esto mostrará la sección de Redes (Networks), en este sección haga clic en **Mostrar/ocultar redes de prueba** (**Show/hide test networks**).
  
- 1. Ahora se le mostrará otra sección **Avanzado** (**Advanced**), en esta sección habilite la opción **Mostrar redes de prueba** (**Show test networks**).
+  1. Ahora se le mostrará otra sección **Avanzado** (**Advanced**), en esta sección habilite la opción **Mostrar redes de prueba** (**Show test networks**).
  
- 1. Finalmente y seleccione la red **localhost:8545**.
+  1. Finalmente y seleccione la red **localhost:8545**.
  
 * Debe tener configurado el [backend de desarrollo](https://github.com/alvaro-7x/productos-chain-backend).
 
@@ -51,13 +51,13 @@ Esto iniciará un servidor de desarrollo. Seguidamente abra su navegador de pref
 
 * Para importar la **Private Key número 1** en metamask siga los siguientes pasos:
  
- 1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
+  1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
  
- 1. En la ventana pop-up recientemente abierta haga clic en el icono circular ubicado en la esquina superior derecha justo al lado del indicador de red.
+  1. En la ventana pop-up recientemente abierta haga clic en el icono circular ubicado en la esquina superior derecha justo al lado del indicador de red.
 
- 1. Seguidamente haga clic en **Import Account**.
+  1. Seguidamente haga clic en **Import Account**.
 
- 1. Ahora podrá ver la sección de importacion, aqui deberá pegar la **Private Key número 1** y finalmente hacer clic en **Import**. Ahora podra ver que ya cuenta con ethers de prueba para interactuar con la aplicación Productos Chain. [Ver ejemplo](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
+  1. Ahora podrá ver la sección de importacion, aqui deberá pegar la **Private Key número 1** y finalmente hacer clic en **Import**. Ahora podra ver que ya cuenta con ethers de prueba para interactuar con la aplicación Productos Chain. [Ver ejemplo](https://metamask.zendesk.com/hc/en-us/articles/360015489331-How-to-import-an-Account).
 
 
 En producción
@@ -72,9 +72,9 @@ ng build --aot --vendor-chunk --common-chunk --delete-output-path --build-optimi
 * **Las siguientes indicaciones son para `interactuar` con la aplicación, considerando que tanto backend y frontend están en producción.**
 
 * Seleccionar la red de Goerli:
- 1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
+  1. En el navegador haga clic en el icono de metamask ubicado en la parte superior derecha, esto abrirá una ventana pop-up.
  
- 1. En la ventana pop-up recientemente abierta haga clic en el boton del medio,  el que se encuentra al lado derecho del icono de metamask, esto mostrará la sección de Redes (Networks), en este sección haga clic en la red Goerli.
+  1. En la ventana pop-up recientemente abierta haga clic en el boton del medio,  el que se encuentra al lado derecho del icono de metamask, esto mostrará la sección de Redes (Networks), en este sección haga clic en la red Goerli.
  
 
 * Obtener [ethers de prueba](https://faucets.chain.link/) de la tesnet de Goerli.
