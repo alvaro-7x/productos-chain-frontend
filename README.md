@@ -94,5 +94,5 @@ Este proyecto es solo el [**frontend**](https://github.com/alvaro-7x/productos-c
 <img src="/images/productos-chain-6.png" width="400px"><br>
 
 ## Ver proyecto
-[Clic aquí para ver el proyecto completo en funcionamiento](https://productos-chain.herokuapp.com/#/auth/login)
+[Clic aquí para ver el proyecto completo en funcionamiento](https://productos-chain.up.railway.app/#/auth/login)
 
