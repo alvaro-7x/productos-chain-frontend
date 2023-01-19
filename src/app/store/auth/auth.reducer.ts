@@ -37,7 +37,7 @@ export const authReducer = createReducer
       ...state,
       loading: true,
       logueado: false,
-      estado: 'Intentando conección ...',
+      estado: 'Intentando conexión ...',
       error: null
     };
   }),

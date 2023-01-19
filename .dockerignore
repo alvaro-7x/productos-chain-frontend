@@ -1,0 +1,6 @@
+.vscode
+.angular
+node_modules
+tmp
+.dockerignore
+Dockerfile

@@ -79,6 +79,15 @@ ng build --aot --vendor-chunk --common-chunk --delete-output-path --build-optimi
 
 * Obtener [ethers de prueba](https://faucets.chain.link/) de la tesnet de Goerli.
 
+## Desplegar el proyecto con docker (en desarrollo)
+
+En la carpeta raiz del proyecto ejecute el siguiente comando:
+```
+docker-compose -f docker-compose.yaml up -d
+
+```
+El archivo `docker-compose.yaml` se encargará de levantar el projecto, pero recuerde que debe tener configurado el [backend de desarrollo](https://github.com/alvaro-7x/productos-chain-backend).
+
 
 ## ¿Y ahora que sigue?
 
@@ -94,5 +103,6 @@ Este proyecto es solo el [**frontend**](https://github.com/alvaro-7x/productos-c
 <img src="/images/productos-chain-6.png" width="400px"><br>
 
 ## Ver proyecto
-[Clic aquí para ver el proyecto completo en funcionamiento](https://productos-chain.herokuapp.com/#/auth/login)
-
+[Clic aquí para ver el proyecto completo en funcionamiento con frontend angular](https://productoschain-angular.up.railway.app)
+<br>
+[Clic aquí para ver el proyecto completo en funcionamiento con frontend react](https://productoschain-react.up.railway.app)
