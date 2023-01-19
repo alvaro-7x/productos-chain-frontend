@@ -84,9 +84,19 @@ ng build --aot --vendor-chunk --common-chunk --delete-output-path --build-optimi
 En la carpeta raiz del proyecto ejecute el siguiente comando:
 ```
 docker-compose -f docker-compose.yaml up -d
-
 ```
 El archivo `docker-compose.yaml` se encargará de levantar el projecto, pero recuerde que debe tener configurado el [backend de desarrollo](https://github.com/alvaro-7x/productos-chain-backend).
+
+Para obtener los ethers de prueba para metamask, deberá ejecutar el comando:
+```
+docker logs ganache-development
+```
+
+El resultado del comando anterior sera similar a:
+
+<img src="/images/ganache.jpg" width="400px"><br>
+
+Seguidamente deberá seguir los mismos pasos mencionados en la sección `Desplegar el proyecto` -> `En desarrollo` para importar las cuentas.
 
 
 ## ¿Y ahora que sigue?
